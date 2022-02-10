@@ -4,6 +4,7 @@ const emailEl = document.querySelector('#email');
 const passwordEl = document.querySelector('#password');
 const password2El = document.querySelector('#confirm-password');
 const form = document.querySelector('#signup');
+const togglePassword = document.querySelector('#togglePassword')
 
 
 //Add event listener to form
@@ -113,6 +114,13 @@ const checkConfirmPassword = () => {
     }
     return valid;
 }
+
+togglePassword.addEventListener('click', function (){
+    const type = passwordEl.getAttribute('type') === "password" ? "text" : "password";
+    passwordEl.setAttribute('type', type)
+
+    this.classList.toggle('bi-eye')
+});
 
 form.addEventListener('submit', e => {
     e.preventDefault();
